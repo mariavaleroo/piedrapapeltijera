@@ -33,7 +33,9 @@
     padding: 10px;
     border: 1px solid darkblue;
     background: transparent;
+    cursor:pointer
         }
+        
  form{
     display: flex;
     align-items: center;
