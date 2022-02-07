@@ -101,6 +101,14 @@ if(isset($_POST['cerrar'])){
             top:10%;
             left:10%    
         }
+        .btn{
+            border-radius:5px;
+            border:solid 2px #000;
+            color:white;
+            background-color:blue;
+            width:100px;
+            
+        }
     </style>
 </head>
 </html>
@@ -127,11 +135,11 @@ echo "<div class='form'>
 
 </div>
 <div id='imagen'><img src='chuleta.png' style='width:100%;height:100%;' alt=''>
-        <form action='' method='post'><input type='submit' name='cerrar' value='Cerrar' id='cerrar'></form>
+        <form action='' method='post'><input class='btn' type='submit' name='cerrar' value='Cerrar' id='cerrar'></form>
     </div>
     <div id='boton'>
         <form action='' method='post'>
-            <input type='submit' value='chuleta' name='btn'>
+            <input class='btn' type='submit' value='chuleta' name='btn'>
         </form>
     </div>
 ";
