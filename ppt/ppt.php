@@ -1,19 +1,25 @@
 <html>
 <head>
-<?php
+<script type="text/javascript">
+function cerrar(){
+    var div=document.getElementById("reglas");
+    if(div.style.display="flex"){
+        div.style.display="none";
+    }else{
+        div.style.display="none";
 
-$pop_out='none';
-$pop_up='block';
-$condicion=$pop_out;
-if(isset($_POST['btn'])){
-    $condicion=$pop_up;
-    
+    }
 }
-if(isset($_POST['cerrar'])){
-    $condicion=$pop_out;
-   
+function abrir(){
+    var div=document.getElementById("reglas");
+    if(div.style.display="none"){
+        div.style.display="flex";
+    }else{
+        div.style.display="none";
+
+    }
 }
-?>
+</script>
     <style>
         body{
             background:url(images.jpg);
@@ -83,24 +89,7 @@ if(isset($_POST['cerrar'])){
     justify-content: space-around;
     align-items: center;
         }
-        #imagen{
-            display:<?php echo $condicion?>;
-            position:absolute;
-            top: 20%;
-            left:20%;
-            width:250px;
-            height:250px;
-        }
-        #cerrar{
-            position:absolute;
-            top:0%;
-            right:0% ;
-        }
-        #boton{
-            position:absolute;
-            top:10%;
-            left:10%    
-        }
+        
         .btn{
             border-radius:5px;
             border:solid 2px #000;
@@ -108,6 +97,43 @@ if(isset($_POST['cerrar'])){
             background-color:blue;
             width:100px;
             
+        }
+        .reglas{
+            display: none;
+    align-items: flex-start;
+    justify-content: flex-end;
+    align-content: flex-start;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+        }
+        .reglas img{
+            width:50%
+        }
+        .reglas>p{
+            color: white;
+    text-align: center;
+    font-size: 40px;
+    border: 1px solid white;
+    text-align: center;
+    background: cadetblue;
+    padding: 20px;
+    position: absolute;
+    bottom: 75%;
+    left: 91%;
+    right: 0px;
+    margin: 0px;
+    top: 0px;
+    cursor:pointer
+        }
+        #abrir p{
+            position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 13%;
+    height: 4%;
+    left: 86%;
+    cursor:pointer
         }
     </style>
 </head>
@@ -134,14 +160,7 @@ echo "<div class='form'>
 </form>
 
 </div>
-<div id='imagen'><img src='chuleta.png' style='width:100%;height:100%;' alt=''>
-        <form action='' method='post'><input class='btn' type='submit' name='cerrar' value='Cerrar' id='cerrar'></form>
-    </div>
-    <div id='boton'>
-        <form action='' method='post'>
-            <input class='btn' type='submit' value='chuleta' name='btn'>
-        </form>
-    </div>
+
 ";
 $_SESSION["resultado"]=mt_rand(1,3);
 //1=piedra
@@ -224,7 +243,9 @@ if(isset($_POST["tijera"])){
 }
 
 echo "</div>";
-
+echo "<div id='abrir'> <p onclick='abrir()'>REGLAS</p></div>";
+echo "<div id='reglas' class='reglas'><p onclick='cerrar()'>X</p><img src='chuleta.png'></div>";
 
 ?>
+
 
