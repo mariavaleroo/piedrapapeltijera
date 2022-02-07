@@ -1,5 +1,19 @@
 <html>
 <head>
+<?php
+
+$pop_out='none';
+$pop_up='block';
+$condicion=$pop_out;
+if(isset($_POST['btn'])){
+    $condicion=$pop_up;
+    
+}
+if(isset($_POST['cerrar'])){
+    $condicion=$pop_out;
+   
+}
+?>
     <style>
         body{
             background:url(images.jpg);
@@ -69,6 +83,24 @@
     justify-content: space-around;
     align-items: center;
         }
+        #imagen{
+            display:<?php echo $condicion?>;
+            position:absolute;
+            top: 20%;
+            left:20%;
+            width:250px;
+            height:250px;
+        }
+        #cerrar{
+            position:absolute;
+            top:0%;
+            right:0% ;
+        }
+        #boton{
+            position:absolute;
+            top:10%;
+            left:10%    
+        }
     </style>
 </head>
 </html>
@@ -91,8 +123,17 @@ echo "<div class='form'>
 
 <form action='' class='tijera' method='post'>
 <input type='submit' name='tijera' value=''>
-</form></div>
+</form>
 
+</div>
+<div id='imagen'><img src='chuleta.png' style='width:100%;height:100%;' alt=''>
+        <form action='' method='post'><input type='submit' name='cerrar' value='Cerrar' id='cerrar'></form>
+    </div>
+    <div id='boton'>
+        <form action='' method='post'>
+            <input type='submit' value='chuleta' name='btn'>
+        </form>
+    </div>
 ";
 $_SESSION["resultado"]=mt_rand(1,3);
 //1=piedra
